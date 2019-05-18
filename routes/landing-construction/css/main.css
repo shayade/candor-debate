@@ -1,0 +1,44 @@
+body, html { 
+    margin: 0; 
+    padding: 0; 
+    font-family: Merriweather, "Roboto Slab", serif;
+    height: 100%;
+}
+button {
+    border: none; 
+    outline: none; 
+    background-color: none; 
+}
+button:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
+button.attention {
+    background-color: #FFE600;
+    font-family: 'Roboto Slab', serif;
+    font-size: 20px;
+    padding: 20px;  
+}
+input {
+    padding: 20px;
+    border: 1px solid #666;
+    font-family: 'Roboto Slab', serif;
+    width: calc(100% - 40px);
+}
+input:active, input:focus {
+    outline: none;
+    border: 1px solid #111; 
+    background-color: #eee;
+}
+input:hover {
+    background-color: #eee;
+}
+.inputContainer {
+    margin: 1px;
+}
+.center {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+}
