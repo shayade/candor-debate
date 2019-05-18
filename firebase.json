@@ -1,0 +1,10 @@
+{
+  "hosting": {
+    "public": "dist/routes/landing-construction",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}
