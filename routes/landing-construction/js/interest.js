@@ -1,11 +1,10 @@
 /* eslint-disable no-console */
 /* global firebase $ */
 $(document).ready(function(){
-	console.log("Ready!");
-	var database = firebase.database();
 	$("#interestForm").submit(function(e){
 		e.preventDefault(); 
 		$("#interestedButton").text("Loading...");
+		var database = firebase.database();
 		database.ref("/summer2019Interest/" + Date.now()).set({
 			email: $("#interestForm").find("input").val()
 		}, function(error){
