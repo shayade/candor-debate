@@ -4,7 +4,12 @@ module.exports = function (grunt) {
 			dist: {
 				options: {
 					removeComments: true,
-					collapseWhitespace: true
+					collapseWhitespace: true,
+					minifyJS: true, 
+					minifyCSS: true,
+					removeRedundantAttributes: true,
+					removeScriptTypeAttributes: true, 
+					decodeEntities: true
 				},
 				files: [{ 
 					src: "routes/**/*.html",

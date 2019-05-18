@@ -30,3 +30,13 @@
     padding: 3%;
     filter: blur(0);
 }
+@media only screen and (max-width: 800px) {
+    .form-card{
+        width: 60%;
+    }
+}
+@media only screen and (max-width: 600px) {
+    .form-card{
+        width: 100%;
+    }
+}
