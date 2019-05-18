@@ -12,8 +12,8 @@ module.exports = function (grunt) {
 					decodeEntities: true
 				},
 				files: [{ 
-					src: "routes/**/*.html",
-					dest: "dist/",
+					src: "dist/**/*.html",
+					dest: "./",
 					expand: true,
 					flatten: false, 
 					ext: ".html"
@@ -26,7 +26,7 @@ module.exports = function (grunt) {
 				dest: "dist/",
 				expand: true,
 				flatten: false, 
-				ext: ".min.js"
+				ext: ".js"
 			}
 		},
 		cssmin: {
@@ -49,18 +49,26 @@ module.exports = function (grunt) {
 				files: [{expand: true, src: ["routes/**/static/**"], dest: "dist/"}]
 			}
 		},
+		ejs: {
+			all: {
+				src: ["routes/**/*.ejs", "!routes/**/partials/*"],
+				dest: "dist/",
+				expand: true,
+				ext: ".html",
+			},
+		},
 		watch: {
 			js:  { files: "routes/**/*.js", tasks: [ "uglify" ] },
-			html: { files: "routes/**/*.html", tasks: [ "htmlmin" ]},
+			html: { files: "routes/**/*.html", tasks: [ "ejs", "htmlmin" ]},
 			css: { files: "routes/**/*.css", tasks: [ "cssmin" ]},
 			img: { files: "routes/**/static/**", tasks: ["copy"]}
 		}
 	});
-	
+	grunt.loadNpmTasks("grunt-ejs");
 	grunt.loadNpmTasks("grunt-contrib-watch");
 	grunt.loadNpmTasks("grunt-contrib-uglify");
 	grunt.loadNpmTasks("grunt-contrib-htmlmin");
 	grunt.loadNpmTasks("grunt-contrib-cssmin");
 	grunt.loadNpmTasks("grunt-contrib-copy");
-	grunt.registerTask("default", [ "uglify", "htmlmin", "cssmin", "copy" ]);
+	grunt.registerTask("default", [ "ejs", "uglify", "htmlmin", "cssmin", "copy"]);
 };
